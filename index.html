@@ -1,160 +1,111 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Para Ti 💖</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para mi reina linda</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #ffccd5, #ffe6f0);
-      font-family: 'Segoe Script', cursive;
-      color: #880e4f;
-      text-align: center;
-      overflow: hidden;
-    }
+    /* ---- Base styles ---- */
+    :root {
+      --primary: #ff6b81;
+      --secondary: #ffdde1;
+      --tertiary: #ee9ca7;
+    }* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    .banner {
-      background-color: #e91e63;
-      color: white;
-      padding: 20px 0;
-      font-size: 24px;
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
+body {
+  font-family: 'Great Vibes', cursive;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background: linear-gradient(120deg, var(--secondary), var(--tertiary));
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
 
-    h1 {
-      margin-top: 40px;
-      font-size: 2.8em;
-      animation: fadeIn 2s ease-in-out;
-    }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    p {
-      font-size: 1.4em;
-      margin: 30px auto;
-      max-width: 600px;
-      animation: fadeIn 3s ease-in-out;
-    }
+h1 {
+  margin-top: 60px;
+  font-size: 3.2rem;
+  animation: fadeIn 2s ease-in-out;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
 
-    button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 30px;
-      font-size: 16px;
-      margin: 10px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
+p {
+  margin: 25px 20px;
+  font-size: 1.6rem;
+  animation: fadeIn 4s ease-in-out;
+}
 
-    button:hover {
-      transform: scale(1.05);
-    }
+.btn-container {
+  margin-top: 35px;
+  animation: fadeIn 5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+button {
+  background: var(--primary);
+  border: none;
+  border-radius: 30px;
+  padding: 14px 34px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
 
-    .heart {
-      font-size: 3em;
-      animation: heartbeat 1.5s infinite;
-      color: #e91e63;
-    }
+button:hover {
+  transform: scale(1.08);
+}
 
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-    .buttons {
-      margin-top: 40px;
-    }
+/* ---- Petals & Hearts ---- */
+.floating {
+  position: fixed;
+  top: -50px;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+  animation: fall var(--fall-duration) linear infinite;
+}
 
-    /* Pétalos cayendo */
-    .petal {
-      position: fixed;
-      top: -50px;
-      font-size: 24px;
-      color: #f48fb1;
-      animation: fall linear infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
+.petal {
+  background: pink;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
 
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Banner superior -->
-  <div class="banner">🌹 1 año juntos 🌹</div>
-
-  <!-- Contenido principal -->
-  <div>
-    <div class="heart">❤️</div>
-    <h1>Para ti, mi reina linda</h1>
-    <p>
-      No sé si fue el destino, la suerte o una casualidad,<br>
-      pero no dejo de agradecer el haber coincidido contigo.<br>
-      Pase lo que pase, nunca me iré de tu lado... nunca.
-    </p>
-  </div>
-
-  <!-- Botones de redes y ubicación -->
-  <div class="buttons">
-    <h2 style="color: #e91e63;">Sígueme o ven a verme 💖</h2>
-
-    <!-- Botón Instagram (reel) -->
-    <a href="https://www.instagram.com/reel/DGHHRtWSMgVb31bWoKNmE4OJiQfqsrVDpokF-g0/?igsh=azg0eTZ5eXBjbmt5" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #e1306c; color: white;">
-        📸 Instagram
-      </button>
-    </a>
-
-    <!-- Botón YouTube -->
-    <a href="https://youtu.be/b3GyAtcoogc?si=yOcoo3pfNKC_oGvu" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #ff0000; color: white;">
-        🎥 YouTube
-      </button>
-    </a>
-
-    <!-- Botón de ubicación -->
-    <a href="https://maps.app.goo.gl/bn5KyLbzKhVzwT4x9" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #4caf50; color: white;">
-        📍 Ubicación
-      </button>
-    </a>
-  </div>
-
-  <!-- Música de fondo -->
-  <audio autoplay loop>
-    <source src="https://dl.dropboxusercontent.com/scl/fi/16j5q2y7u1s9ghpghxgf2/Coincidir-Macaco.mp3?rlkey=75avw1w5ag2uqg3hvzxyq4hym&st=jtzquv6z&dl=0" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-
-  <!-- Script para pétalos cayendo -->
-  <script>
-    const createPetal = () => {
-      const petal = document.createElement("div");
-      petal.classList.add("petal");
-      petal.textContent = "🌸";
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration = 4 + Math.random() * 4 + "s";
-      document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 8000);
-    };
-    setInterval(createPetal, 300);
-  </script>
-
-</body>
-</html>
+.heart {
+  width: 30px;
+  height: 30px;
+  background: var(--primary);
+  transform: rotate(45deg);
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height:
