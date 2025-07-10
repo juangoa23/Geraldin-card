@@ -3,36 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Para mi reina linda</title>
+  <title>Para Ti 💖</title>
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --primary: #ff6b81;
-      --secondary: #ffdde1;
-      --tertiary: #ee9ca7;
-    }
-
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
+      background: linear-gradient(to bottom right, #ffccd5, #ffe6f0);
       font-family: 'Great Vibes', cursive;
       color: #880e4f;
       text-align: center;
       overflow-x: hidden;
-      min-height: 100vh;
-      background: linear-gradient(120deg, var(--secondary), var(--tertiary));
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      overflow-y: auto;
     }
 
     .banner {
@@ -45,16 +28,39 @@
     }
 
     h1 {
-      margin-top: 60px;
-      font-size: 3.2rem;
+      margin-top: 40px;
+      font-size: 2.8em;
       animation: fadeIn 2s ease-in-out;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     }
 
     p {
-      margin: 25px 20px;
-      font-size: 1.6rem;
-      animation: fadeIn 4s ease-in-out;
+      font-size: 1.4em;
+      margin: 30px auto;
+      max-width: 600px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      font-family: 'Great Vibes', cursive;
+      color: white;
+      background-color: #e91e63;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background-color: #c2185b;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .heart {
@@ -68,36 +74,11 @@
       50% { transform: scale(1.2); }
     }
 
-    .btn-container {
-      margin-top: 35px;
-      animation: fadeIn 5s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
+    .buttons {
+      margin-top: 40px;
     }
 
-    button {
-      background: var(--primary);
-      border: none;
-      border-radius: 30px;
-      padding: 14px 34px;
-      color: #fff;
-      font-size: 1.1rem;
-      cursor: pointer;
-      font-family: inherit;
-      transition: transform 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.08);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
+    /* Pétalos cayendo */
     .petal {
       position: fixed;
       top: -50px;
@@ -109,119 +90,138 @@
     }
 
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* Mensaje sorpresa estilo */
-    #mensajeSorpresa {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
-      background: #fff0f6;
-      border: 2px solid #e91e63;
-      padding: 25px 40px;
-      border-radius: 20px;
-      font-size: 1.8rem;
-      color: #d81b60;
-      font-weight: bold;
-      box-shadow: 0 8px 20px rgba(232, 55, 110, 0.5);
-      z-index: 10;
-      opacity: 0;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    #mensajeSorpresa.show {
-      display: block;
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    #mensajeSorpresa button {
-      margin-top: 20px;
-      background: #e91e63;
-      border: none;
-      color: white;
-      padding: 8px 20px;
-      font-size: 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    #mensajeSorpresa button:hover {
-      background-color: #ad1457;
-    }
-
-    /* Confetti */
-    .confetti-piece {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background-color: var(--primary);
-      opacity: 0.9;
-      z-index: 9999;
-      pointer-events: none;
-      animation: confetti-fall linear forwards;
-      border-radius: 2px;
-    }
-
-    @keyframes confetti-fall {
       0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
       }
       100% {
-        transform: translateY(100vh) rotate(720deg);
+        transform: translateY(100vh) rotate(360deg);
         opacity: 0;
       }
     }
 
+    /* Carta modal */
+    #carta {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 240, 245, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .contenido-carta {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in-out;
+      font-size: 1.2em;
+      color: #880e4f;
+    }
+
+    #carta button {
+      margin-top: 20px;
+      background: #e91e63;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1em;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    #carta button:hover {
+      background: #c2185b;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Banner superior -->
   <div class="banner">🌹 1 año juntos 🌹</div>
 
-  <div class="heart">❤️</div>
-  <h1>Para ti, mi reina linda</h1>
-  <p>
-    No sé si fue el destino, la suerte o una casualidad,<br>
-    pero no dejo de agradecer el haber coincidido contigo.<br>
-    Pase lo que pase, nunca me iré de tu lado... nunca.
-  </p>
+  <!-- Contenido principal -->
+  <div>
+    <div class="heart">❤️</div>
+    <h1>Para ti, mi reina linda</h1>
+    <p>
+      No sé si fue el destino, la suerte o una casualidad,<br>
+      pero no dejo de agradecer el haber coincidido contigo.<br>
+      Pase lo que pase, nunca me iré de tu lado... nunca.
+    </p>
+  </div>
 
-  <div class="btn-container">
+  <!-- Botón para mostrar la carta -->
+  <button id="verCarta">💌 Leer mi carta para ti</button>
+
+  <!-- Carta oculta -->
+  <div id="carta">
+    <div class="contenido-carta">
+      <h2>Mi amor, mi reina linda:</h2>
+      <p>
+        Hoy se cumple un año desde que decidimos caminar juntos por este hermoso camino llamado amor.<br><br>
+
+        No hay palabras que alcancen para agradecer cada sonrisa que me has regalado, cada abrazo que me ha sostenido y cada mirada que me ha llenado de paz.<br><br>
+
+        A tu lado he encontrado un hogar, un refugio, un amor verdadero. Y si pudiera volver a elegir entre millones de personas, te elegiría a ti, una y otra vez, sin pensarlo.<br><br>
+
+        Gracias por ser mi compañera, mi apoyo, mi risa en los días grises y la calma en los días agitados.<br>
+        Gracias por ser tú... por existir.<br><br>
+
+        Este primer año es solo el comienzo de todos los momentos hermosos que aún nos esperan. No sé lo que el futuro traerá, pero sí sé que mientras estés a mi lado, todo estará bien.<br><br>
+
+        Te amo más de lo que las palabras pueden decir... 💖
+      </p>
+      <p style="margin-top: 20px; font-style: italic;">
+        Con todo mi amor,<br>
+        Tu Juan 💘
+      </p>
+      <button id="cerrarCarta">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Botones de redes y ubicación -->
+  <div class="buttons">
     <h2 style="color: #e91e63;">Sígueme o ven a verme 💖</h2>
 
-    <a href="https://www.instagram.com/reel/DGHHRtWSMgVb31bWoKNmE4OJiQfqsrVDpokF-g0/?igsh=azg0eTZ5eXBjbmt5" target="_blank">
-      <button>📸 Instagram</button>
+    <!-- Botón Instagram (reel) -->
+    <a href="https://www.instagram.com/reel/DGHHRtWSMgVb31bWoKNmE4OJiQfqsrVDpokF-g0/?igsh=azg0eTZ5eXBjbmt5" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #e1306c; color: white;">
+        📸 Instagram
+      </button>
     </a>
 
-    <a href="https://youtu.be/b3GyAtcoogc?si=yOcoo3pfNKC_oGvu" target="_blank">
-      <button>🎥 YouTube</button>
+    <!-- Botón YouTube -->
+    <a href="https://youtu.be/b3GyAtcoogc?si=yOcoo3pfNKC_oGvu" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #ff0000; color: white;">
+        🎥 YouTube
+      </button>
     </a>
 
-    <a href="https://maps.app.goo.gl/bn5KyLbzKhVzwT4x9" target="_blank">
-      <button>📍 El lugar de nuestro primer beso</button>
+    <!-- Botón de ubicación -->
+    <a href="https://maps.app.goo.gl/bn5KyLbzKhVzwT4x9" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #4caf50; color: white;">
+        📍 El lugar de nuestro primer beso
+      </button>
     </a>
   </div>
 
-  <!-- Mensaje sorpresa -->
-  <div id="mensajeSorpresa">
-    🌟 Eres la persona más maravillosa que conozco. Te amo. 🌟
-    <br />
-    <button id="cerrarMensaje">Cerrar 💖</button>
-  </div>
-
-  <!-- Música -->
+  <!-- Música de fondo -->
   <audio autoplay loop>
     <source src="https://dl.dropboxusercontent.com/scl/fi/16j5q2y7u1s9ghpghxgf2/Coincidir-Macaco.mp3?rlkey=75avw1w5ag2uqg3hvzxyq4hym&st=jtzquv6z&dl=0" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
 
+  <!-- Script para pétalos cayendo -->
   <script>
-    // Pétalos cayendo
     const createPetal = () => {
       const petal = document.createElement("div");
       petal.classList.add("petal");
@@ -233,37 +233,14 @@
     };
     setInterval(createPetal, 300);
 
-    // Mostrar mensaje sorpresa después de 5 segundos con animación
-    const mensaje = document.getElementById("mensajeSorpresa");
-    setTimeout(() => {
-      mensaje.classList.add("show");
-    }, 5000);
+    // Carta interactiva
+    document.getElementById("verCarta").onclick = () => {
+      document.getElementById("carta").style.display = "flex";
+    };
 
-    // Botón para cerrar mensaje y activar confetti
-    const btnCerrar = document.getElementById("cerrarMensaje");
-    btnCerrar.addEventListener("click", () => {
-      mensaje.classList.remove("show");
-      lanzarConfetti();
-    });
-
-    // Función para lanzar confetti
-    function lanzarConfetti() {
-      const cantidad = 50;
-      for (let i = 0; i < cantidad; i++) {
-        const confetti = document.createElement("div");
-        confetti.classList.add("confetti-piece");
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-        confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
-        confetti.style.top = "-10px";
-        confetti.style.width = confetti.style.height = (5 + Math.random() * 8) + "px";
-        document.body.appendChild(confetti);
-
-        confetti.addEventListener("animationend", () => {
-          confetti.remove();
-        });
-      }
-    }
+    document.getElementById("cerrarCarta").onclick = () => {
+      document.getElementById("carta").style.display = "none";
+    };
   </script>
 
 </body>
