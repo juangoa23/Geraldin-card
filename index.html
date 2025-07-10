@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Para Ti 💖</title>
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -78,7 +77,6 @@
       margin-top: 40px;
     }
 
-    /* Pétalos cayendo */
     .petal {
       position: fixed;
       top: -50px;
@@ -135,20 +133,64 @@
       border-radius: 25px;
       cursor: pointer;
       font-size: 1em;
-      font-family: 'Great Vibes', cursive;
     }
 
     #carta button:hover {
+      background: #c2185b;
+    }
+
+    /* Modal sorpresa */
+    #modalSorpresa {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    #modalSorpresa .contenido {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    #modalSorpresa .contenido h2 {
+      color: #e91e63;
+    }
+
+    #modalSorpresa .contenido p {
+      color: #444;
+      font-size: 1.1em;
+    }
+
+    #modalSorpresa .contenido button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    #modalSorpresa .contenido button:hover {
       background: #c2185b;
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner superior -->
-  <div class="banner">🌹 1 año juntos 🌹</div>
+  <!-- Banner -->
+  <div class="banner">🌹 1 AÑO JUNTOS 🌹</div>
 
-  <!-- Contenido principal -->
+  <!-- Corazón y mensaje -->
   <div>
     <div class="heart">❤️</div>
     <h1>Para ti, mi reina linda</h1>
@@ -159,25 +201,20 @@
     </p>
   </div>
 
-  <!-- Botón para mostrar la carta -->
+  <!-- Botón carta -->
   <button id="verCarta">💌 Leer mi carta para ti</button>
 
-  <!-- Carta oculta -->
+  <!-- Carta -->
   <div id="carta">
     <div class="contenido-carta">
       <h2>Mi amor, mi reina linda:</h2>
       <p>
         Hoy se cumple un año desde que decidimos caminar juntos por este hermoso camino llamado amor.<br><br>
-
         No hay palabras que alcancen para agradecer cada sonrisa que me has regalado, cada abrazo que me ha sostenido y cada mirada que me ha llenado de paz.<br><br>
-
         A tu lado he encontrado un hogar, un refugio, un amor verdadero. Y si pudiera volver a elegir entre millones de personas, te elegiría a ti, una y otra vez, sin pensarlo.<br><br>
-
         Gracias por ser mi compañera, mi apoyo, mi risa en los días grises y la calma en los días agitados.<br>
         Gracias por ser tú... por existir.<br><br>
-
         Este primer año es solo el comienzo de todos los momentos hermosos que aún nos esperan. No sé lo que el futuro traerá, pero sí sé que mientras estés a mi lado, todo estará bien.<br><br>
-
         Te amo más de lo que las palabras pueden decir... 💖
       </p>
       <p style="margin-top: 20px; font-style: italic;">
@@ -188,39 +225,41 @@
     </div>
   </div>
 
-  <!-- Botones de redes y ubicación -->
+  <!-- Redes y ubicación -->
   <div class="buttons">
-    <h2 style="color: #e91e63;">Sígueme o ven a verme 💖</h2>
-
-    <!-- Botón Instagram (reel) -->
-    <a href="https://www.instagram.com/reel/DGHHRtWSMgVb31bWoKNmE4OJiQfqsrVDpokF-g0/?igsh=azg0eTZ5eXBjbmt5" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #e1306c; color: white;">
-        📸 Instagram
-      </button>
+    <h2 style="color: #e91e63;">Te amo con mi vida 💖</h2>
+    <a href="https://www.instagram.com/reel/DGHHRtWSMgVb31bWoKNmE4OJiQfqsrVDpokF-g0/?igsh=azg0eTZ5eXBjbmt5" target="_blank">
+      <button style="background-color: #e1306c;">📸 Instagram</button>
+    </a>
+    <a href="https://youtu.be/b3GyAtcoogc?si=yOcoo3pfNKC_oGvu" target="_blank">
+      <button style="background-color: #ff0000;">🎥 Nuestra cancion</button>
+    </a>
+    <a href="https://maps.app.goo.gl/bn5KyLbzKhVzwT4x9" target="_blank">
+      <button style="background-color: #4caf50;">📍 El lugar de nuestro primer beso</button>
     </a>
 
-    <!-- Botón YouTube -->
-    <a href="https://youtu.be/b3GyAtcoogc?si=yOcoo3pfNKC_oGvu" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #ff0000; color: white;">
-        🎥 YouTube
-      </button>
-    </a>
+    <!-- Botón de sorpresa -->
+    <button id="mostrarSorpresa" style="background-color: #9c27b0;">🎁 Mensaje Sorpresa</button>
+  </div>
 
-    <!-- Botón de ubicación -->
-    <a href="https://maps.app.goo.gl/bn5KyLbzKhVzwT4x9" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #4caf50; color: white;">
-        📍 El lugar de nuestro primer beso
-      </button>
-    </a>
+  <!-- Modal Sorpresa -->
+  <div id="modalSorpresa">
+    <div class="contenido">
+      <h2>💖 Sorpresa 💖</h2>
+      <p>
+        Eres mi persona favorita en el mundo. Tu sonrisa ilumina mis días, y tu amor me da vida. Gracias por estar conmigo, mi reina linda. 💌
+      </p>
+      <button id="cerrarSorpresa">Cerrar</button>
+    </div>
   </div>
 
   <!-- Música de fondo -->
   <audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2023/11/14/audio_3c9b5d5d3f.mp3?filename=romantic-2-39.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio HTML5.
-</audio>
+    <source src="https://cdn.pixabay.com/download/audio/2023/11/14/audio_3c9b5d5d3f.mp3?filename=romantic-2-39.mp3" type="audio/mpeg">
+    
+  </audio>
 
-  <!-- Script para pétalos cayendo -->
+  <!-- Script -->
   <script>
     const createPetal = () => {
       const petal = document.createElement("div");
@@ -233,13 +272,20 @@
     };
     setInterval(createPetal, 300);
 
-    // Carta interactiva
+    // Carta
     document.getElementById("verCarta").onclick = () => {
       document.getElementById("carta").style.display = "flex";
     };
-
     document.getElementById("cerrarCarta").onclick = () => {
       document.getElementById("carta").style.display = "none";
+    };
+
+    // Sorpresa
+    document.getElementById("mostrarSorpresa").onclick = () => {
+      document.getElementById("modalSorpresa").style.display = "flex";
+    };
+    document.getElementById("cerrarSorpresa").onclick = () => {
+      document.getElementById("modalSorpresa").style.display = "none";
     };
   </script>
 
