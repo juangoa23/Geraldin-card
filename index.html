@@ -1,55 +1,160 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para ti, Geraldin 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para Ti 💖</title>
   <style>
-    :root {
-      --pink: #ff4081;
-      --dark: #1d1d1d;
-      --light: #ffffff;
-    }
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--light);
-      background: radial-gradient(circle at top left, var(--pink) 0%, var(--dark) 70%);
-      overflow-x: hidden;
-    }
-    header {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      background: linear-gradient(to bottom right, #ffccd5, #ffe6f0);
+      font-family: 'Segoe Script', cursive;
+      color: #880e4f;
       text-align: center;
-      padding: 2rem;
+      overflow: hidden;
     }
+
+    .banner {
+      background-color: #e91e63;
+      color: white;
+      padding: 20px 0;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      animation: bounce 3s infinite;
+      margin-top: 40px;
+      font-size: 2.8em;
+      animation: fadeIn 2s ease-in-out;
     }
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
+
+    p {
+      font-size: 1.4em;
+      margin: 30px auto;
+      max-width: 600px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: heartbeat 1.5s infinite;
+      color: #e91e63;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .buttons {
+      margin-top: 40px;
+    }
+
+    /* Pétalos cayendo */
+    .petal {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      color: #f48fb1;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
       }
-      50% {
-        transform: translateY(-15px);
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
       }
     }
-    .btn-group {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .btn {
-      padding: 0.75rem 1.5rem
+  </style>
+</head>
+<body>
+
+  <!-- Banner superior -->
+  <div class="banner">🌹 1 año juntos 🌹</div>
+
+  <!-- Contenido principal -->
+  <div>
+    <div class="heart">❤️</div>
+    <h1>Para ti, mi reina linda</h1>
+    <p>
+      No sé si fue el destino, la suerte o una casualidad,<br>
+      pero no dejo de agradecer el haber coincidido contigo.<br>
+      Pase lo que pase, nunca me iré de tu lado... nunca.
+    </p>
+  </div>
+
+  <!-- Botones de redes y ubicación -->
+  <div class="buttons">
+    <h2 style="color: #e91e63;">Sígueme o ven a verme 💖</h2>
+
+    <!-- Botón Instagram (reel) -->
+    <a href="https://www.instagram.com/reel/DGHHRtWSMgVb31bWoKNmE4OJiQfqsrVDpokF-g0/?igsh=azg0eTZ5eXBjbmt5" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #e1306c; color: white;">
+        📸 Instagram
+      </button>
+    </a>
+
+    <!-- Botón YouTube -->
+    <a href="https://youtu.be/b3GyAtcoogc?si=yOcoo3pfNKC_oGvu" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #ff0000; color: white;">
+        🎥 YouTube
+      </button>
+    </a>
+
+    <!-- Botón de ubicación -->
+    <a href="https://maps.app.goo.gl/bn5KyLbzKhVzwT4x9" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #4caf50; color: white;">
+        📍 Ubicación
+      </button>
+    </a>
+  </div>
+
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/16j5q2y7u1s9ghpghxgf2/Coincidir-Macaco.mp3?rlkey=75avw1w5ag2uqg3hvzxyq4hym&st=jtzquv6z&dl=0" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <!-- Script para pétalos cayendo -->
+  <script>
+    const createPetal = () => {
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
+      petal.textContent = "🌸";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = 4 + Math.random() * 4 + "s";
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 8000);
+    };
+    setInterval(createPetal, 300);
+  </script>
+
+</body>
+</html>
