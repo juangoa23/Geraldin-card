@@ -1,88 +1,227 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tarjeta Digital para Geraldin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Geraldin 💖</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
     body {
-      background: linear-gradient(135deg, #ffeef2, #fff6fb);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
+      background: linear-gradient(to bottom right, #ffe6f0, #ffd6e7);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 🌹 Banner de aniversario */
+    .anniversary-banner {
+      width: 100%;
+      background-color: #ffcde4;
+      color: #c0396c;
       text-align: center;
-      padding: 2rem;
-      animation: fadeIn 2s ease-in;
+      padding: 15px 10px 5px 10px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .anniversary-date {
+      font-size: 1rem;
+      font-weight: normal;
+      margin-top: 5px;
+      color: #a0355d;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+      margin-top: 100px; /* espacio para el banner */
     }
 
     h1 {
-      color: #d63384;
-      font-family: 'Pacifico', cursive;
+      color: #c0396c;
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
-    p, h2 {
+    p {
+      color: #333;
       font-size: 1.2rem;
-      line-height: 1.6;
+      max-width: 80%;
+      margin-bottom: 2rem;
     }
 
-    a {
-      display: block;
-      margin: 1rem auto;
-      color: #fff;
-      background-color: #d63384;
-      padding: 0.75rem 1.5rem;
-      border-radius: 25px;
-      text-decoration: none;
-      width: fit-content;
-      transition: background 0.3s ease;
+    .button {
+      background-color: #ff6fa1;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    a:hover {
-      background-color: #c02670;
+    .button:hover {
+      background-color: #ff4c87;
+      transform: scale(1.05);
     }
 
-    blockquote {
+    #phraseBox {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #c0396c;
       font-style: italic;
-      margin-top: 2rem;
-      color: #555;
-      font-size: 1.1rem;
+      padding: 10px;
     }
 
-    .music {
-      margin-top: 2rem;
+    audio {
+      display: none;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* 💖 Corazones flotando */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>💖 Te amo infinitamente, Geraldin 💖</h1>
-  <p>Eres mi pensamiento favorito cada día. Aunque no existan palabras suficientes, aquí estoy, intentando decirte cuánto significas para mí.</p>
 
-  <h2>🔗 Cosas que me recuerdan a ti:</h2>
-  <a href="https://open.spotify.com/track/7Cv4COg1k8hB65h4fWqyds" target="_blank">🎵 Una canción que me hace pensar en ti</a>
-  <a href="https://www.google.com/maps/place/Paris/" target="_blank">🌍 Un lugar que quiero visitar contigo</a>
-  <a href="https://www.pinterest.com/search/pins/?q=couple%20goals%20travel" target="_blank">📸 Un recuerdo que quiero crear contigo</a>
-  <a href="https://www.youtube.com/watch?v=R4vkVHijdQk" target="_blank">🕊️ Una promesa sin final</a>
+  <!-- 🌹 Banner de aniversario -->
+  <div class="anniversary-banner">
+    🌹 <strong>¡1 año contigo, mi amor!</strong> 🌹
+    <div class="anniversary-date">Desde el 11 de julio de 2024...</div>
+  </div>
 
-  <blockquote>
-    "Si tuviera que elegir de nuevo, te elegiría a ti cada vez, en cada vida, en cada universo."
-  </blockquote>
+  <!-- 💖 Corazones flotando -->
+  <div class="hearts" id="hearts"></div>
 
-  <p>Con todo mi amor,<br />Tu eterno enamorado, JUAN 💘</p>
+  <div class="container">
+    <h1>Para ti, Geraldin 💖</h1>
+    <p>
+      Eres mi casualidad más hermosa, y te prometo que <strong>nunca voy a dejarte</strong>.
+      Esta página es solo un pedacito de lo mucho que siento por ti.
+    </p>
 
-  <div class="music">
-    <audio controls autoplay loop>
-      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-      Tu navegador no soporta audio HTML.
+    <!-- 🎶 Botón para canción -->
+    <button class="button" onclick="playSong()">🎶 Dale play a nuestra canción</button>
+
+    <!-- 💋 Primer beso -->
+    <a href="https://www.google.com/maps?q=dunkin+donuts+centro+mayor" target="_blank">
+      <button class="button">💋 Aquí nos dimos nuestro primer beso</button>
+    </a>
+
+    <!-- 💌 Frases románticas -->
+    <button class="button" onclick="showRandomPhrase()">💌 Sorpréndeme con una frase</button>
+    <div id="phraseBox"></div>
+
+    <!-- 🎧 Audio externo -->
+    <audio id="loveSong" controls>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+      Tu navegador no soporta audio.
     </audio>
   </div>
+
+  <script>
+    function playSong() {
+      const song = document.getElementById("loveSong");
+      song.play();
+    }
+
+    const phrases = [
+      "Eres la casualidad más bonita que llegó a mi vida.",
+      "Desde que te conocí, supe que quería coincidir contigo para siempre.",
+      "Cada momento contigo es un pedacito de cielo.",
+      "No importa lo que pase, nunca voy a soltarte.",
+      "Tu sonrisa es mi lugar favorito.",
+      "Amarte es lo más bonito que he hecho en mi vida.",
+      "Nuestro amor es mi historia favorita."
+    ];
+
+    function showRandomPhrase() {
+      const phraseBox = document.getElementById("phraseBox");
+      const randomIndex = Math.floor(Math.random() * phrases.length);
+      phraseBox.textContent = phrases[randomIndex];
+    }
+
+    // 💖 Corazones flotantes
+    const heartsContainer = document.getElementById("hearts");
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+      heart.style.opacity = Math.random();
+      heart.style.transform = `scale(${Math.random() * 1 + 0.5}) rotate(45deg)`;
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
 </body>
 </html>
