@@ -1,227 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para Geraldin 💖</title>
+  <meta charset="UTF-8">
+  <title>Para ti, Geraldin 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: linear-gradient(to bottom right, #ffe6f0, #ffd6e7);
-      font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
+    :root {
+      --pink: #ff4081;
+      --dark: #1d1d1d;
+      --light: #ffffff;
+    }
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
-
-    /* 🌹 Banner de aniversario */
-    .anniversary-banner {
-      width: 100%;
-      background-color: #ffcde4;
-      color: #c0396c;
-      text-align: center;
-      padding: 15px 10px 5px 10px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 10;
-      position: fixed;
-      top: 0;
-      left: 0;
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--light);
+      background: radial-gradient(circle at top left, var(--pink) 0%, var(--dark) 70%);
+      overflow-x: hidden;
     }
-
-    .anniversary-date {
-      font-size: 1rem;
-      font-weight: normal;
-      margin-top: 5px;
-      color: #a0355d;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
+    header {
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      flex-direction: column;
       text-align: center;
-      padding: 20px;
-      margin-top: 100px; /* espacio para el banner */
+      padding: 2rem;
     }
-
     h1 {
-      color: #c0396c;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      animation: bounce 3s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .btn-group {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: var(--light);
+      color: var(--dark);
+      font-weight: 600;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    section#mensaje {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--light);
+      color: var(--dark);
+    }
+    section#mensaje h2 {
+      font-family: 'Great Vibes', cursive;
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-
-    p {
-      color: #333;
+    section#mensaje p {
+      max-width: 700px;
+      margin: 0 auto;
       font-size: 1.2rem;
-      max-width: 80%;
-      margin-bottom: 2rem;
+      line-height: 1.6;
     }
-
-    .button {
-      background-color: #ff6fa1;
-      border: none;
-      color: white;
-      padding: 15px 30px;
-      margin: 10px;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    footer {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background: var(--dark);
     }
-
-    .button:hover {
-      background-color: #ff4c87;
-      transform: scale(1.05);
-    }
-
-    #phraseBox {
-      margin-top: 20px;
-      font-size: 1.3rem;
-      color: #c0396c;
-      font-style: italic;
-      padding: 10px;
-    }
-
-    audio {
-      display: none;
-    }
-
-    /* 💖 Corazones flotando */
-    .hearts {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
+    /* Corazones flotantes */
     .heart {
-      position: absolute;
+      position: fixed;
       width: 20px;
       height: 20px;
-      background: red;
+      background: var(--pink);
       transform: rotate(45deg);
-      animation: float 8s linear infinite;
+      left: 50%;
+      animation: float 5s linear infinite;
     }
-
     .heart::before,
     .heart::after {
       content: '';
       position: absolute;
       width: 20px;
       height: 20px;
-      background: red;
+      background: var(--pink);
       border-radius: 50%;
     }
-
     .heart::before {
       top: -10px;
       left: 0;
     }
-
     .heart::after {
       left: -10px;
       top: 0;
     }
-
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(45deg);
-        opacity: 0;
-      }
+      0% { transform: translate(-50%, 0) rotate(45deg); opacity: 1; }
+      100% { transform: translate(-50%, -800px) rotate(45deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🌹 Banner de aniversario -->
-  <div class="anniversary-banner">
-    🌹 <strong>¡1 año contigo, mi amor!</strong> 🌹
-    <div class="anniversary-date">Desde el 11 de julio de 2024...</div>
+  <!-- YouTube embed de la canción Coincidir - Macaco (oculto) -->
+  <div style="display: none;">
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="0"
+      height="0"
+      src="https://www.youtube.com/embed/1k4bQnyrS9c?autoplay=1&loop=1&playlist=1k4bQnyrS9c"
+      frameborder="0"
+      allow="autoplay"
+    ></iframe>
   </div>
 
-  <!-- 💖 Corazones flotando -->
-  <div class="hearts" id="hearts"></div>
+  <header>
+    <h1>Siempre juntos, Geraldin</h1>
+    <div class="btn-group">
+      <button class="btn" onclick="document.getElementById('mensaje').scrollIntoView({behavior:'smooth'});">Leer mi promesa</button>
+      <a class="btn" href="https://wa.me/57XXXXXXXXX" target="_blank" rel="noopener">Envíame un mensaje</a>
+    </div>
+  </header>
 
-  <div class="container">
-    <h1>Para ti, Geraldin 💖</h1>
+  <section id="mensaje">
+    <h2>Mi promesa eterna</h2>
     <p>
-      Eres mi casualidad más hermosa, y te prometo que <strong>nunca voy a dejarte</strong>.
-      Esta página es solo un pedacito de lo mucho que siento por ti.
+      Geraldin, desde el instante en que coincidimos supe que mi vida había encontrado su melodía favorita.
+      Hoy te entrego esta pequeña tarjeta para recordarte algo grande: <strong>nunca voy a dejarte</strong>.
+      Sea cual sea el camino, mi mano buscará la tuya; mis pasos querrán bailar al ritmo de tu risa.
+      Gracias por cada mirada, cada aventura y cada sueño que pintas de color.
+      <br><br>
+      Con todo mi amor, <em>tu compañero de vida</em>.
     </p>
+  </section>
 
-    <!-- 🎶 Botón para canción -->
-    <button class="button" onclick="playSong()">🎶 Dale play a nuestra canción</button>
+  <footer>
+    © 2025 • Hecho con 💖 para Geraldin
+  </footer>
 
-    <!-- 💋 Primer beso -->
-    <a href="https://www.google.com/maps?q=dunkin+donuts+centro+mayor" target="_blank">
-      <button class="button">💋 Aquí nos dimos nuestro primer beso</button>
-    </a>
-
-    <!-- 💌 Frases románticas -->
-    <button class="button" onclick="showRandomPhrase()">💌 Sorpréndeme con una frase</button>
-    <div id="phraseBox"></div>
-
-    <!-- 🎧 Audio externo -->
-    <audio id="loveSong" controls>
-      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
-      Tu navegador no soporta audio.
-    </audio>
-  </div>
-
+  <!-- Script para corazones flotantes -->
   <script>
-    function playSong() {
-      const song = document.getElementById("loveSong");
-      song.play();
-    }
-
-    const phrases = [
-      "Eres la casualidad más bonita que llegó a mi vida.",
-      "Desde que te conocí, supe que quería coincidir contigo para siempre.",
-      "Cada momento contigo es un pedacito de cielo.",
-      "No importa lo que pase, nunca voy a soltarte.",
-      "Tu sonrisa es mi lugar favorito.",
-      "Amarte es lo más bonito que he hecho en mi vida.",
-      "Nuestro amor es mi historia favorita."
-    ];
-
-    function showRandomPhrase() {
-      const phraseBox = document.getElementById("phraseBox");
-      const randomIndex = Math.floor(Math.random() * phrases.length);
-      phraseBox.textContent = phrases[randomIndex];
-    }
-
-    // 💖 Corazones flotantes
-    const heartsContainer = document.getElementById("hearts");
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (6 + Math.random() * 4) + "s";
-      heart.style.opacity = Math.random();
-      heart.style.transform = `scale(${Math.random() * 1 + 0.5}) rotate(45deg)`;
-      heartsContainer.appendChild(heart);
+    const colors = ['#ff4081', '#ff80ab', '#ff1744', '#f50057'];
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      const size = Math.random() * 20 + 10;
+      heart.style.width = size + 'px';
+      heart.style.height = size + 'px';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.background = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.animationDuration = 4 + Math.random() * 6 + 's';
+      document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 10000);
-    }
-
-    setInterval(createHeart, 500);
+    }, 500);
   </script>
+
 </body>
 </html>
